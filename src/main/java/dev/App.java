@@ -1,10 +1,10 @@
 package dev;
 
+import java.util.Scanner;
+
 import dev.dao.PlatDaoMemoire;
 import dev.ihm.Menu;
 import dev.service.PlatServiceVersion2;
-
-import java.util.Scanner;
 
 public class App {
 

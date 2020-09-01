@@ -1,11 +1,5 @@
 package dev.ihm;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
-import org.springframework.stereotype.Component;
-
 import dev.exception.PlatException;
 import dev.ihm.options.IOptionMenu;
 import dev.ihm.options.OptionAjouterPlat;
@@ -13,18 +7,27 @@ import dev.ihm.options.OptionListerPlats;
 import dev.ihm.options.OptionTerminer;
 import dev.service.IPlatService;
 
-@Component
-public class Menu {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MenuBean {
 
     private Map<Integer, IOptionMenu> actions = new HashMap<>();
 
     private String menu;
     private Scanner scanner;
 
-    public Menu(Scanner scanner, IPlatService service) {
-        actions.put(1, new OptionListerPlats(service));
-        actions.put(2, new OptionAjouterPlat(scanner, service));
-        actions.put(99, new OptionTerminer());
+    public MenuBean(Scanner scanner, IPlatService service, ApplicationContext context) {
+    	
+			actions.put(1, context.getBean(OptionListerPlats.class));
+			actions.put(2, context.getBean(OptionAjouterPlat.class));
+			actions.put(99, context.getBean(OptionTerminer.class));
+    	
         this.scanner = scanner;
     }
 
@@ -63,3 +66,4 @@ public class Menu {
         return this.menu;
     }
 }
+

@@ -1,9 +1,7 @@
 package dev.ihm.options;
 
 import dev.service.IPlatService;
-import org.springframework.stereotype.Controller;
 
-@Controller
 public class OptionListerPlats implements IOptionMenu {
 
     private IPlatService service;
@@ -23,10 +21,4 @@ public class OptionListerPlats implements IOptionMenu {
         this.service.listerPlats().forEach(plat -> System.out.println(plat.getNom() + " (" + (plat.getPrixEnCentimesEuros() / 100) + " €)"));
 
     }
-
-    @Override
-    public int getPoids() {
-        return 101;
-    }
-
 }
