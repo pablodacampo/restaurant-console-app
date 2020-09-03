@@ -1,7 +1,6 @@
 
 package dev.service;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.assertj.core.api.Assertions;

@@ -2,22 +2,20 @@ package dev.config;
 
 import java.util.Scanner;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
+//Configuration pilotée par des annotation
 @Configuration
-@ComponentScan("dev")
-//@PropertySource('app.properties')
+//activer la recherche de beans Spring
+@ComponentScan({"dev"})
+@PropertySource("app.properties")
 public class AppConfig {
 
-	
+	// constructeur de bean car classe particulière comme on ne peut pas toucher au JDK pour ajouter les annotation
 	@Bean
-	public Scanner scan() {
+	public Scanner scanner() {
 		return new Scanner(System.in);
 	}
-	
-	
 	
 	
 }

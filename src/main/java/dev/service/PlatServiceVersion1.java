@@ -1,20 +1,20 @@
 package dev.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Component;
-
 import dev.dao.IPlatDao;
 import dev.entite.Plat;
 import dev.exception.PlatException;
 
-@Component
+import java.util.List;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
+@Service
+@Profile("service1")
 public class PlatServiceVersion1 implements IPlatService {
 
     private IPlatDao dao;
 
-   
-    public PlatServiceVersion1(IPlatDao dao) {
+    public PlatServiceVersion1( IPlatDao dao) {
         this.dao = dao;
     }
 

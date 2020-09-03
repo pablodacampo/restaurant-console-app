@@ -14,6 +14,16 @@
 		<project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
 	</properties>
 
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId> <!-- Permet de mettre à jour le plugin Maven Surfire pour les supports JUnit 
+					5 -->
+				<version>2.22.2</version>
+			</plugin>
+		</plugins>
+	</build>
+
 	<!-- TODO Bloc à ajouter -->
 	<dependencyManagement>
 		<dependencies>
@@ -36,11 +46,13 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
+		<!-- Tests -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
@@ -50,29 +62,59 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<scope>test</scope>
+			<version>2.8.47</version>
 		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<scope>test</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Tests -->
+
+		<!-- jdbc -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Support de JPA par Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+
+		<!-- API JPA -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+		</dependency>
+		<!-- Implémentation JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+
 	</dependencies>
-
-
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
